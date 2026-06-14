@@ -1,0 +1,16 @@
+Package: com.yourname.customslidetext
+Version: 1.0.1-1+debug
+Architecture: iphoneos-arm
+Maintainer: Your Name
+Installed-Size: 80
+Depends: mobilesubstrate, preferenceloader
+Filename: ./debs/com.yourname.customslidetext_1.0.1-1+debug_iphoneos-arm.deb
+Size: 5878
+MD5sum: 9efbe7f86ff163a3a1cb25a6b3447e99
+SHA1: 987a22badbfb2c3fb29ed52d82a244cc2c2ccee1
+SHA256: 8e7a3ffe06c221f49812c88df38a34a691e7ceb2965ce4f2912cd53eaeea1a1a
+Section: Tweaks
+Description: Custom slide to unlock text for iOS 6. Configure in Settings.
+Author: Your Name
+Name: CustomSlideText
+
