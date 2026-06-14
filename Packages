@@ -190,6 +190,22 @@ Description: Universal network patcher and fixer for Alien Blue on iOS 6.
 Author: Max1mka
 Name: AlienBlueFixer
 
+Package: com.max1mka.alienbluefixer
+Version: 1.1.4-1+debug
+Architecture: iphoneos-arm
+Maintainer: Max1mka
+Installed-Size: 84
+Depends: mobilesubstrate
+Filename: debs/com.max1mka.alienbluefixer_1.1.4-1+debug_iphoneos-arm.deb
+Size: 7896
+MD5sum: 6a62d2037dafda41e2a10888b6f76775
+SHA1: bbf7ba092fb4900db349288166580d84f3dcdd89
+SHA256: b735d1e0fb9b04dfcdb4510fc58bb991a0c0bdf3fd9ac880530ff19dfaa4d158
+Section: Tweaks
+Description: Universal network patcher and fixer for Alien Blue on iOS 6.
+Author: Max1mka
+Name: AlienBlueFixer
+
 Package: com.yourname.customslidetext
 Version: 1.0.1-1+debug
 Architecture: iphoneos-arm
