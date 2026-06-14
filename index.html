@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlienBlueFixer Repo</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(31, 40, 51, 0.6);
+            --primary-glow: #66fcf1;
+            --secondary-glow: #45a29e;
+            --text-main: #c5c6c7;
+            --text-light: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient glowing background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(102, 252, 241, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: var(--card-bg);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 500px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                        0 0 20px 0 rgba(102, 252, 241, 0.1) inset;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4),
+                        0 0 30px 0 rgba(102, 252, 241, 0.15) inset;
+        }
+
+        .icon-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem auto;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--primary-glow);
+            animation: pulse 3s infinite alternate;
+        }
+
+        .icon-container svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--bg-color);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(102, 252, 241, 0.6); transform: scale(1); }
+            100% { box-shadow: 0 0 30px rgba(102, 252, 241, 0.9); transform: scale(1.05); }
+        }
+
+        h1 {
+            color: var(--text-light);
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .btn-cydia {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-glow);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--primary-glow);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-cydia::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 252, 241, 0.4), transparent);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-cydia:hover::before {
+            left: 100%;
+        }
+
+        .btn-cydia:hover {
+            background: var(--primary-glow);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.6);
+            transform: scale(1.05);
+        }
+
+        .info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Animated particles */
+        .particle {
+            position: absolute;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 10s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CSS Particles -->
+    <script>
+        for (let i = 0; i < 20; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            let size = Math.random() * 5 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <div class="container">
+        <div class="icon-container">
+            <!-- Alien UFO Icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C7 2 3.5 5 3.5 5S2 8 2 12c0 3 1.5 6 1.5 6s4 4 8.5 4 8.5-4 8.5-4 1.5-3 1.5-6c0-4-1.5-7-1.5-7S17 2 12 2zm0 18c-4.4 0-7-3-7-3S4 14.5 4 12c0-2.5 1-5 1-5s3-3 7-3 7 3 7 3 1 2.5 1 5c0 2.5-1 5-1 5s-2.6 3-7 3zm-3.5-9.5c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2zm7 0c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2z"/>
+            </svg>
+        </div>
+        
+        <h1>AlienBlueFixer</h1>
+        <p>The ultimate network patch to resurrect Alien Blue on iOS 6. Bypasses Fastly WAF and TLS 1.2 errors via a custom proxy.</p>
+        
+        <!-- Cydia Add Button -->
+        <a href="javascript:void(0)" onclick="addRepo()" class="btn-cydia">Add to Cydia</a>
+        
+        <div class="info">
+            Works natively with Cydia on jailbroken iOS 6 devices.<br>
+            Developed by Max1mka
+        </div>
+    </div>
+
+    <script>
+        function addRepo() {
+            // Get the current URL up to the repository root
+            let repoUrl = window.location.href;
+            if (repoUrl.endsWith('index.html')) {
+                repoUrl = repoUrl.substring(0, repoUrl.length - 10);
+            }
+            if (!repoUrl.endsWith('/')) {
+                repoUrl += '/';
+            }
+            
+            // Construct Cydia schema URL
+            let cydiaUrl = "cydia://url/https://cydia.saurik.com/api/share#?source=" + encodeURIComponent(repoUrl);
+            
+            // Redirect to Cydia
+            window.location.href = cydiaUrl;
+            
+            // Fallback for non-iOS devices
+            setTimeout(() => {
+                alert("If Cydia didn't open, copy this URL and add it manually: " + repoUrl);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
