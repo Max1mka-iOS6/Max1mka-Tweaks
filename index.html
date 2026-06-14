@@ -9,8 +9,8 @@
             margin: 0;
             padding: 0;
             background-color: #c5ccd4;
-            background-image: repeating-linear-gradient(
-                0deg,
+            background-image: -webkit-repeating-linear-gradient(
+                90deg,
                 transparent,
                 transparent 1px,
                 rgba(255, 255, 255, 0.4) 1px,
@@ -26,9 +26,9 @@
         .header {
             width: 100%;
             height: 44px;
-            background: linear-gradient(to bottom, #b4c2d0 0%, #8ca4bd 50%, #7e99b4 51%, #88a1bb 100%);
+            background-image: -webkit-linear-gradient(top, #b4c2d0 0%, #8ca4bd 50%, #7e99b4 51%, #88a1bb 100%);
             border-bottom: 1px solid #2d3642;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0,0,0,0.3);
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -54,18 +54,20 @@
             width: 114px;
             height: 114px;
             margin: 0 auto 20px auto;
-            background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            background-image: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
             border-radius: 22px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 2px 2px rgba(255,255,255,0.5);
+            -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 2px 2px rgba(255,255,255,0.5);
             border: 1px solid #1a3c5a;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 60px;
+            color: white;
+            text-shadow: 0 -2px 2px rgba(0,0,0,0.5);
         }
 
-        /* iOS 6 Glossy highlight */
         .icon-box::after {
             content: '';
             position: absolute;
@@ -73,18 +75,10 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);
+            background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);
             border-bottom-left-radius: 50% 15%;
             border-bottom-right-radius: 50% 15%;
             pointer-events: none;
-        }
-
-        .icon-box svg {
-            width: 70px;
-            height: 70px;
-            fill: white;
-            filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.5));
-            z-index: 1;
         }
 
         .description-box {
@@ -93,7 +87,7 @@
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             text-align: left;
         }
 
@@ -105,12 +99,13 @@
         }
 
         .btn-cydia {
-            display: inline-block;
-            background: linear-gradient(to bottom, #749aba 0%, #3e6d97 50%, #295b87 51%, #3b6d98 100%);
+            display: block;
+            background-color: #3e6d97;
+            background-image: -webkit-linear-gradient(top, #749aba 0%, #3e6d97 50%, #295b87 51%, #3b6d98 100%);
             border: 1px solid #1a3c5a;
             border-radius: 8px;
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
-            color: white;
+            -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
+            color: white !important;
             text-shadow: 0 -1px 1px rgba(0,0,0,0.6);
             font-weight: bold;
             font-size: 18px;
@@ -118,11 +113,12 @@
             width: 100%;
             text-decoration: none;
             -webkit-tap-highlight-color: transparent;
+            text-align: center;
         }
 
         .btn-cydia:active {
-            background: linear-gradient(to bottom, #3b6d98 0%, #295b87 50%, #3e6d97 51%, #749aba 100%);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            background-image: -webkit-linear-gradient(top, #3b6d98 0%, #295b87 50%, #3e6d97 51%, #749aba 100%);
+            -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .footer {
@@ -141,17 +137,15 @@
 
     <div class="content">
         <div class="icon-box">
-            <!-- Retro Alien Icon -->
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C7 2 3.5 5 3.5 5S2 8 2 12c0 3 1.5 6 1.5 6s4 4 8.5 4 8.5-4 8.5-4 1.5-3 1.5-6c0-4-1.5-7-1.5-7S17 2 12 2zm0 18c-4.4 0-7-3-7-3S4 14.5 4 12c0-2.5 1-5 1-5s3-3 7-3 7 3 7 3 1 2.5 1 5c0 2.5-1 5-1 5s-2.6 3-7 3zm-3.5-9.5c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2zm7 0c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2z"/>
-            </svg>
+            👽
         </div>
         
         <div class="description-box">
             <p><strong>AlienBlueFixer</strong><br><br>The ultimate network patch to resurrect Alien Blue on iOS 6. Bypasses modern TLS errors and WAF blocks.</p>
         </div>
         
-        <a href="javascript:void(0)" onclick="addRepo()" class="btn-cydia">Add to Cydia</a>
+        <!-- Native link click for Safari iOS 6 -->
+        <a id="cydia-btn" href="#" class="btn-cydia">Add to Cydia</a>
         
         <div class="footer">
             Developed by Max1mka
@@ -159,21 +153,25 @@
     </div>
 
     <script>
-        function addRepo() {
-            let repoUrl = window.location.href;
-            if (repoUrl.endsWith('index.html')) {
-                repoUrl = repoUrl.substring(0, repoUrl.length - 10);
+        window.onload = function() {
+            var repoUrl = window.location.href;
+            if (repoUrl.indexOf('index.html') !== -1) {
+                repoUrl = repoUrl.replace('index.html', '');
             }
-            if (!repoUrl.endsWith('/')) {
+            if (repoUrl.charAt(repoUrl.length - 1) !== '/') {
                 repoUrl += '/';
             }
-            let cydiaUrl = "cydia://url/https://cydia.saurik.com/api/share#?source=" + encodeURIComponent(repoUrl);
-            window.location.href = cydiaUrl;
+            var cydiaUrl = "cydia://url/https://cydia.saurik.com/api/share#?source=" + encodeURIComponent(repoUrl);
+            var btn = document.getElementById('cydia-btn');
+            btn.href = cydiaUrl;
             
-            setTimeout(() => {
-                alert("Если Cydia не открылась, скопируйте ссылку вручную: " + repoUrl);
-            }, 1000);
-        }
+            // On click, show an alert after a delay if Cydia didn't open
+            btn.onclick = function() {
+                setTimeout(function() {
+                    alert("Если Cydia не открылась, скопируйте ссылку вручную: " + repoUrl);
+                }, 1500);
+            };
+        };
     </script>
 </body>
 </html>
