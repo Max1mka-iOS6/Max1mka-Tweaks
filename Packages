@@ -4,7 +4,7 @@ Architecture: iphoneos-arm
 Maintainer: Max1mka
 Installed-Size: 44
 Depends: mobilesubstrate
-Filename: ./debs/com.max1mka.rotaryunlock_1.0.0-1+debug_iphoneos-arm.deb
+Filename: debs/com.max1mka.rotaryunlock_1.0.0-1+debug_iphoneos-arm.deb
 Size: 11456
 MD5sum: c7606bf9fa23aa6c5839b0be691ec20f
 SHA1: 5cac50d33904953caf7b0ef626fb551490ca3724
@@ -20,7 +20,7 @@ Architecture: iphoneos-arm
 Maintainer: Your Name
 Installed-Size: 80
 Depends: mobilesubstrate, preferenceloader
-Filename: ./debs/com.yourname.customslidetext_1.0.1-1+debug_iphoneos-arm.deb
+Filename: debs/com.yourname.customslidetext_1.0.1-1+debug_iphoneos-arm.deb
 Size: 5878
 MD5sum: 9efbe7f86ff163a3a1cb25a6b3447e99
 SHA1: 987a22badbfb2c3fb29ed52d82a244cc2c2ccee1
