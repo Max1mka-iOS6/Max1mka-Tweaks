@@ -222,21 +222,21 @@ Description: Universal network patcher and fixer for Alien Blue on iOS 6.
 Author: Max1mka
 Name: AlienBlueFixer
 
-Package: com.max1mka.nightlinen
+Package: com.max1mka.crashscreen
 Version: 1.0.0-1+debug
 Architecture: iphoneos-arm
-Maintainer: max1mka
-Installed-Size: 36
-Depends: mobilesubstrate
-Filename: debs/com.max1mka.nightlinen_1.0.0-1+debug_iphoneos-arm.deb
-Size: 3382
-MD5sum: dc06bb65415f94087cb9ec4952ec48f9
-SHA1: 2fe3ab6eae49c49838d1608c7be4bf25950e5c9f
-SHA256: 90f58d52dcc2a6eff9ac1bcb98ed69ac7b2d43d576dbe20c3c841bc0db809e46
+Maintainer: Max1mka
+Installed-Size: 64
+Depends: mobilesubstrate, firmware (>= 6.0)
+Filename: debs/com.max1mka.crashscreen_1.0.0-1+debug_iphoneos-arm.deb
+Size: 12782
+MD5sum: 39f44c6dace5c9b573c2a6ff013aa26d
+SHA1: 2bb7e572f5047d177c722eabf9b292c6799506e1
+SHA256: 813dc40070555b841a5591ce2c4face6dd9bd28958819fb6fcb16905de8e82f0
 Section: Tweaks
-Description: System-wide Dark Mode for iOS 6
-Author: max1mka
-Name: NightLinen
+Description: Replaces boring crash dialogs with dramatic fullscreen animations (BSOD, Sad Mac, Kernel Panic)
+Author: Max1mka
+Name: CrashScreen
 
 Package: com.yourname.customslidetext
 Version: 1.0.1-1+debug
@@ -254,3 +254,6 @@ Description: Custom slide to unlock text for iOS 6. Configure in Settings.
 Author: Your Name
 Name: CustomSlideText
 
+dpkg-scanpackages: warning: Packages in archive but missing from override file:
+dpkg-scanpackages: warning:   com.max1mka.alienbluefixer com.max1mka.crashscreen com.yourname.customslidetext
+dpkg-scanpackages: info: Wrote 16 entries to output Packages file.
