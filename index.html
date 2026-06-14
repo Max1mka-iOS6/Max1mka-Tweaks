@@ -2,212 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AlienBlueFixer Repo</title>
     <style>
-        :root {
-            --bg-color: #0b0c10;
-            --card-bg: rgba(31, 40, 51, 0.6);
-            --primary-glow: #66fcf1;
-            --secondary-glow: #45a29e;
-            --text-main: #c5c6c7;
-            --text-light: #ffffff;
-        }
-
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
+            background-color: #c5ccd4;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 1px,
+                rgba(255, 255, 255, 0.4) 1px,
+                rgba(255, 255, 255, 0.4) 2px
+            );
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
+            min-height: 100vh;
         }
 
-        /* Ambient glowing background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vh;
-            background: radial-gradient(circle, rgba(102, 252, 241, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: var(--card-bg);
-            border: 1px solid rgba(102, 252, 241, 0.2);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-            max-width: 500px;
-            width: 85%;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
-                        0 0 20px 0 rgba(102, 252, 241, 0.1) inset;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4),
-                        0 0 30px 0 rgba(102, 252, 241, 0.15) inset;
-        }
-
-        .icon-container {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.5rem auto;
-            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
-            border-radius: 25px;
+        .header {
+            width: 100%;
+            height: 44px;
+            background: linear-gradient(to bottom, #b4c2d0 0%, #8ca4bd 50%, #7e99b4 51%, #88a1bb 100%);
+            border-bottom: 1px solid #2d3642;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px var(--primary-glow);
-            animation: pulse 3s infinite alternate;
+            position: relative;
         }
 
-        .icon-container svg {
-            width: 60px;
-            height: 60px;
-            fill: var(--bg-color);
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+            font-weight: bold;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 15px rgba(102, 252, 241, 0.6); transform: scale(1); }
-            100% { box-shadow: 0 0 30px rgba(102, 252, 241, 0.9); transform: scale(1.05); }
+        .content {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
         }
 
-        h1 {
-            color: var(--text-light);
-            font-size: 2.2rem;
-            margin: 0 0 0.5rem 0;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        .icon-box {
+            width: 114px;
+            height: 114px;
+            margin: 0 auto 20px auto;
+            background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            border-radius: 22px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 2px 2px rgba(255,255,255,0.5);
+            border: 1px solid #1a3c5a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            color: var(--text-main);
+        /* iOS 6 Glossy highlight */
+        .icon-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);
+            border-bottom-left-radius: 50% 15%;
+            border-bottom-right-radius: 50% 15%;
+            pointer-events: none;
+        }
+
+        .icon-box svg {
+            width: 70px;
+            height: 70px;
+            fill: white;
+            filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+
+        .description-box {
+            background: #ffffff;
+            border: 1px solid #abaeb2;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .description-box p {
+            margin: 0;
+            font-size: 15px;
+            color: #333333;
+            line-height: 1.4;
         }
 
         .btn-cydia {
             display: inline-block;
-            background: transparent;
-            color: var(--primary-glow);
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            border: 2px solid var(--primary-glow);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-cydia::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+            background: linear-gradient(to bottom, #749aba 0%, #3e6d97 50%, #295b87 51%, #3b6d98 100%);
+            border: 1px solid #1a3c5a;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
+            color: white;
+            text-shadow: 0 -1px 1px rgba(0,0,0,0.6);
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 252, 241, 0.4), transparent);
-            transition: all 0.4s ease;
-            z-index: -1;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-cydia:hover::before {
-            left: 100%;
+        .btn-cydia:active {
+            background: linear-gradient(to bottom, #3b6d98 0%, #295b87 50%, #3e6d97 51%, #749aba 100%);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        .btn-cydia:hover {
-            background: var(--primary-glow);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.6);
-            transform: scale(1.05);
-        }
-
-        .info {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Animated particles */
-        .particle {
-            position: absolute;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 10s infinite linear;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
-            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        .footer {
+            margin-top: 20px;
+            color: #6a737d;
+            font-size: 13px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
         }
     </style>
 </head>
 <body>
 
-    <!-- CSS Particles -->
-    <script>
-        for (let i = 0; i < 20; i++) {
-            let particle = document.createElement('div');
-            particle.className = 'particle';
-            let size = Math.random() * 5 + 2;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(particle);
-        }
-    </script>
+    <div class="header">
+        <h1>Repository</h1>
+    </div>
 
-    <div class="container">
-        <div class="icon-container">
-            <!-- Alien UFO Icon -->
+    <div class="content">
+        <div class="icon-box">
+            <!-- Retro Alien Icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C7 2 3.5 5 3.5 5S2 8 2 12c0 3 1.5 6 1.5 6s4 4 8.5 4 8.5-4 8.5-4 1.5-3 1.5-6c0-4-1.5-7-1.5-7S17 2 12 2zm0 18c-4.4 0-7-3-7-3S4 14.5 4 12c0-2.5 1-5 1-5s3-3 7-3 7 3 7 3 1 2.5 1 5c0 2.5-1 5-1 5s-2.6 3-7 3zm-3.5-9.5c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2zm7 0c-.8 0-1.5.9-1.5 2s.7 2 1.5 2 1.5-.9 1.5-2-.7-2-1.5-2z"/>
             </svg>
         </div>
         
-        <h1>AlienBlueFixer</h1>
-        <p>The ultimate network patch to resurrect Alien Blue on iOS 6. Bypasses Fastly WAF and TLS 1.2 errors via a custom proxy.</p>
+        <div class="description-box">
+            <p><strong>AlienBlueFixer</strong><br><br>The ultimate network patch to resurrect Alien Blue on iOS 6. Bypasses modern TLS errors and WAF blocks.</p>
+        </div>
         
-        <!-- Cydia Add Button -->
         <a href="javascript:void(0)" onclick="addRepo()" class="btn-cydia">Add to Cydia</a>
         
-        <div class="info">
-            Works natively with Cydia on jailbroken iOS 6 devices.<br>
+        <div class="footer">
             Developed by Max1mka
         </div>
     </div>
 
     <script>
         function addRepo() {
-            // Get the current URL up to the repository root
             let repoUrl = window.location.href;
             if (repoUrl.endsWith('index.html')) {
                 repoUrl = repoUrl.substring(0, repoUrl.length - 10);
@@ -215,16 +167,11 @@
             if (!repoUrl.endsWith('/')) {
                 repoUrl += '/';
             }
-            
-            // Construct Cydia schema URL
             let cydiaUrl = "cydia://url/https://cydia.saurik.com/api/share#?source=" + encodeURIComponent(repoUrl);
-            
-            // Redirect to Cydia
             window.location.href = cydiaUrl;
             
-            // Fallback for non-iOS devices
             setTimeout(() => {
-                alert("If Cydia didn't open, copy this URL and add it manually: " + repoUrl);
+                alert("Если Cydia не открылась, скопируйте ссылку вручную: " + repoUrl);
             }, 1000);
         }
     </script>
